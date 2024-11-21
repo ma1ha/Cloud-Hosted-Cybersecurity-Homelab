@@ -4,20 +4,27 @@ This project demonstrates the setup and implementation of a cloud-hosted cyberse
 This homelab consists of three EC2 instances with specific roles:
 
 1- Vulnerable Box (Windows Client) - A standard Windows machine set up as a target for attack.
+
 2- Attacker Box - A Kali Linux machine used to launch attacks on the vulnerable Windows machine.
+
 3- Security Box - A monitoring machine used to capture traffic, monitor system performance, and perform vulnerability scans.
+
 The instances are connected via a custom VPC with the necessary security groups and firewall rules to restrict access.
 # Prerequisites
 -AWS Account: You need an AWS account to provision EC2 instances and set up networking.
+
 -IAM User: An IAM user should be created for managing the AWS environment.
+
 -VPC Setup: A custom Virtual Private Cloud (VPC) should be set up with necessary subnetting and security group rules.
 #  Setup Instructions
 1. IAM User Creation
 Create an IAM user for managing your AWS resources.
+
 Attach the necessary permissions (e.g., AdministratorAccess).
+
 Generate API keys for accessing AWS from the command line or automation tools.
 
-2. Creating Security Groups
+3. Creating Security Groups
 Vulnerable Box Security Group: This security group allows inbound and outbound traffic on specific ports required for communication.
 Attacker Box Security Group: A similar security group with rules to allow connections from the attacker to the vulnerable box.
 Security Box Security Group: Rules to monitor traffic, such as ports for Nessus and Splunk to collect data.
@@ -25,10 +32,10 @@ Common Ports Configured:
 Port 22 (SSH) for remote management of Linux-based systems.
 Port 3389 (RDP) for connecting to the Windows client.
 
-3. Launching EC2 Instances
+4. Launching EC2 Instances
 I launched three instances using AWS EC2 Images (AMIs):
 
-Windows Client (Vulnerable Box): A basic Windows image used as the target machine.
+ Windows Client (Vulnerable Box): A basic Windows image used as the target machine.
 Attacker Image: A Kali Linux image used for launching attacks.
 Monitoring Image (Security Box): A Linux-based image where I installed monitoring and scanning tools such as Splunk and Nessus.
 
